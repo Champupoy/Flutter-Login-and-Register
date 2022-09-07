@@ -1,16 +1,17 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/signup.dart';
+import 'login.dart';
+import 'main.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
-                'Welcome!',
+                'Welcome to our App!',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -29,13 +30,59 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 20),
               Text(
-                'Please login again. We missed you!',
+                'Please fill out all the forms below',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 14,
                 ),
               ),
               SizedBox(height: 20),
+
+              //FULL NAME//
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.person),
+                        prefixIconColor: Colors.black,
+                        border: InputBorder.none,
+                        hintText: 'Full Name',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              //PHONE NUMBER//
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.person),
+                        prefixIconColor: Colors.black,
+                        border: InputBorder.none,
+                        hintText: 'Phone Number',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
               //EMAIL//
               Padding(
@@ -97,38 +144,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: Center(
                     child: Text(
-                      'Login',
+                      'Sign Up',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 50),
-
-              //NOT A MEMBER?//
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    ' Not a member?',
-                    style: TextStyle(),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-              TextButton(
-                  style: TextButton.styleFrom(
-                    shadowColor: Colors.blue,
-                  ),
-                  child: Text('Register now'),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignupPage()),
-                    );
-                  })
             ]),
           ),
         ));
