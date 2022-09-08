@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
-import 'signup.dart';
+import 'helper/object_box.dart';
+import 'model/account.dart';
 
-void main() {
+late ObjectBox objectBox;
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  objectBox = await ObjectBox.init();
+
   runApp(const MyApp());
 }
 
