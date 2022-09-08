@@ -1,7 +1,3 @@
-import 'package:objectbox/objectbox.dart';
-
-@Entity()
-@Sync()
 class User  {
   late int id;
   late String name;
