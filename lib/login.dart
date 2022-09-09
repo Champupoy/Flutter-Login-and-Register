@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'signup.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,6 +13,24 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // text controller
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim()
+    );
+  }
+
+  @override
+  void dispose()  {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: TextField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.person),
                         prefixIconColor: Colors.black,
@@ -80,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: TextField(
+                      controller: _passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.lock),
@@ -96,11 +118,14 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  child: Center(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text('Login'),
+                child: GestureDetector(
+                  //onTap: signIn(),
+                  child: Container(
+                    child: Center(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('Login'),
+                      ),
                     ),
                   ),
                 ),
