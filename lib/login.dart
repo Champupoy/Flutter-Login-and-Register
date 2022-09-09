@@ -120,18 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: GestureDetector(
-                    //onTap: signIn(),
+                    onTap: signIn,
                     child: Container(
                       child: Center(
                         child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                 builder: (context) => const HomePage()
-                              ),
-                            );
-                          },
+                          onPressed: () {},
                           child: const Text('Login'),
                         ),
                       ),
