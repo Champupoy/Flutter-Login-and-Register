@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'signup.dart';
+import 'home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -99,7 +100,13 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   child: Center(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()),
+                        );
+                      },
                       child: const Text('Login'),
                     ),
                   ),
