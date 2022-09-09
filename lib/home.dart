@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/adie.dart';
+import 'package:flutter_application_1/gelo.dart';
+import 'package:flutter_application_1/ian.dart';
 import 'login.dart';
 import 'signup.dart';
 
@@ -37,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    MaterialPageRoute(builder: (context) => const DiaryApp()),
                   );
                 },
               ),
@@ -50,6 +53,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 title: Text('Calculator Application'),
                 subtitle: Text('Joshua Ian Española'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyCalculator()),
+                  );
+                },
               ),
               Divider(),
               ListTile(
@@ -60,6 +69,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 title: Text('Calculator Application'),
                 subtitle: Text('Adrienne Flores'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyApp())
+                  );
+                },
               ),
               SizedBox(height: 200),
               Padding(
