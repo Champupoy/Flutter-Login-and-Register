@@ -3,7 +3,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'signup.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'home.dart';
 
 class LoginPage extends StatefulWidget {
@@ -119,19 +118,19 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: GestureDetector(
-                    onTap: signIn,
-                    child: Container(
-                      child: Center(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Login'),
-                        ),
+                  child: Container(
+                    child: Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          signIn();
+
+                        },
+                        child: const Text('Login'),
                       ),
                     ),
                   ),
                 ),
-              SizedBox(height: 50),
+                SizedBox(height: 50),
 
               //NOT A MEMBER?//
 
